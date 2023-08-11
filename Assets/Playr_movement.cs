@@ -17,6 +17,38 @@ public class Playr_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey("d"))
+        {
+            strafeRight = true;
+        }
+        else
+        { 
+            strafeRight = false;
+        }
+
+        if (Input.GetKey("a")) 
+        {
+            strafeLeft = true;
+        }
+        else 
+        { 
+            strafeLeft = false;
+        }
+
+        if (Input.GetKeyDown("space"))
+        { 
+            doJump = true;
+        }
+        else
+        {
+            doJump = false;
+        }
+    
+
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(0, 0, runSpeed * Time.deltaTime);
     }
 }

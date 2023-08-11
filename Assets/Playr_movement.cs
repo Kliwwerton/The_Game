@@ -5,7 +5,7 @@ using UnityEngine;
 public class Playr_movement : MonoBehaviour
 {
     public Rigidbody rb;
-    public float strefSpeed = 500f;
+    public float strafeSpeed = 500f;
     public float runSpeed = 500f;
     public float jumpForce = 15f;
 
@@ -50,5 +50,14 @@ public class Playr_movement : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(0, 0, runSpeed * Time.deltaTime);
+
+        if (strafeLeft)
+        {
+            rb.AddForce(strafeSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+        if (strafeRight)
+        {
+            rb.AddForce(strafeSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
     }
 }

@@ -44,7 +44,7 @@ public class Playr_movement : MonoBehaviour
             doJump = false;
         }
 
-        if (transform.position.y < -25f);
+        if (transform.position.y < -10f);
         {
             Debug.Log("Конец игры");
         }

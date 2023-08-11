@@ -11,8 +11,7 @@ public class Playr_movement : MonoBehaviour
 
     protected bool strafeLeft = false;
     protected bool strafeRight = false;
-    protected bool strafeUp = false;
-
+    protected bool doJump = false;
 
 
     // Update is called once per frame

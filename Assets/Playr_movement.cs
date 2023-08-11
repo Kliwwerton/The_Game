@@ -6,7 +6,7 @@ public class Playr_movement : MonoBehaviour
 {
     public Rigidbody rb;
     public float strafeSpeed = 500f;
-    public float runSpeed = 500f;
+    public float runSpeed = 380f;
     public float jumpForce = 15f;
 
     protected bool strafeLeft = false;
@@ -43,6 +43,11 @@ public class Playr_movement : MonoBehaviour
         {
             doJump = false;
         }
+
+        if (transform.position.y < -25f);
+        {
+            Debug.Log("Конец игры");
+        }
     
 
     }
@@ -53,11 +58,18 @@ public class Playr_movement : MonoBehaviour
 
         if (strafeLeft)
         {
-            rb.AddForce(strafeSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(-strafeSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
         if (strafeRight)
         {
             rb.AddForce(strafeSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+
+        if (doJump)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            doJump = false;
+        }    
     }
 }
